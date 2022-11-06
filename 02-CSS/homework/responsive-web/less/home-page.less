@@ -3,6 +3,16 @@
 .home {
 
   .intro {
+    
+    /*img {
+      border-radius: 20px;
+      margin-top: 0.5em;
+    }// ejer*/ // convertido a mixin: (uso del mixin)
+
+     img {
+
+        .img-mix(2em, 0.5em)
+     }//ejer
 
     h2 {
       padding: 15px;
@@ -11,6 +21,7 @@
     p {
       padding:0 15px;
     }
+
 
   }
 
@@ -57,8 +68,15 @@
         margin-bottom: 26px;
       }
 
-      .btn {
+      .btn{/*
+        background-color: @btn-bg-color;
+        width: fit-content;
+        padding: 10px;
+        color: @porcelain; // ejer
+        border-radius: 8px;*/
+        .btn-mix(@btn-bg-color, @porcelain) //uso del mixin
       }
+  
     }
 
     .actual-img {
@@ -71,5 +89,38 @@
         border-radius: 10px;
       }
     }
+  }
+}
+
+@media @phone { // en caso de usar un telefono celular, ver video 20:20hs aprox, porque
+  .home{          // hasta ahora no se ven cambios com si fuera y un celular
+    .intro img {
+      width:calc(100vw - 18px);
+      margin: 0.2em, 0.7em;
+    }
+    .music-images .auricular{
+        width: calc(100vw - 18px);
+    }
+    .actual{
+      flex-direction: column-reverse;
+      padding: 50px 0px 50px 15px;
+      .actual-text {
+         width:100%; 
+         .btn{
+          width: calc(100vw - 25px);
+          padding: 1.2em;
+          text-align:center;
+          font-size: 1.7em;
+         }
+        }
+        .actual-img{
+          width: calc(100vw - 25Ppx);
+          margin-left: 0;
+        }
+    }
+  }
+
+  .tecnologia, .ondas{
+    display: none;
   }
 }
